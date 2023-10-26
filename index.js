@@ -14,15 +14,43 @@ for (let propert in object) {
     }
     num++;
 }
-const englishWord = document.querySelector('#english')
 //filtreleme
 const filteredWords = {};
 for (const word in wordlist) {
-    if (wordlist[word].level === 'C1') {
+    if (wordlist[word].level === 'A1') {
         filteredWords[word] = wordlist[word];
     }
 }
 //sıralı bir şekilde erişim sağlama
 const keys = Object.keys(filteredWords)
-const keysNum = keys[32]
-console.log(filteredWords[keysNum])
+var keysNum = keys[75]
+console.log(filteredWords[keysNum].english.length)
+var queue = 0
+const englishWord = document.querySelector('#english')
+const meaningWord = document.querySelector('#meaning')
+const buttonright = document.querySelector('#buttonright')
+const buttonleft = document.querySelector('#buttonleft')
+window.onload = (event) => {
+    englishWord.innerHTML = filteredWords[keysNum].english
+    meaningWord.innerHTML = filteredWords[keysNum].turkish
+}
+buttonright.addEventListener('click', ()=> {
+    queue++;
+    keysNum = keys[queue]
+    if (filteredWords[keysNum].english.length > 7 && filteredWords[keysNum].english.length < 11 && window.innerWidth < 600) {
+        englishWord.style.fontSize = '50px';
+    }
+    else if (filteredWords[keysNum].english.length > 11 && window.innerWidth < 600){
+        englishWord.style.fontSize = '40px';
+    }
+    else
+        englishWord.style.fontSize = '60px';
+    englishWord.innerHTML = filteredWords[keysNum].english
+    meaningWord.innerHTML = filteredWords[keysNum].turkish
+})
+buttonleft.addEventListener('click', ()=> {
+    queue--;
+    keysNum = keys[queue]
+    englishWord.innerHTML = filteredWords[keysNum].english
+    meaningWord.innerHTML = filteredWords[keysNum].turkish
+})
