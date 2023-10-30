@@ -35,7 +35,7 @@ window.onload = (event) => {
     meaningWord.innerHTML = filteredWords[keysNum].turkish
 }
 buttonright.addEventListener('click', ()=> {
-    queue++;
+    queue = Math.random() * 1000
     keysNum = keys[queue]
     englishWord.innerHTML = filteredWords[keysNum].english
     meaningWord.innerHTML = filteredWords[keysNum].turkish
