@@ -36,6 +36,7 @@ window.onload = (event) => {
 }
 buttonright.addEventListener('click', ()=> {
     queue++;
+    keysNum = keys[queue]
     englishWord.innerHTML = filteredWords[keysNum].english
     meaningWord.innerHTML = filteredWords[keysNum].turkish
 })
