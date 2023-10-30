@@ -17,7 +17,7 @@ for (let propert in object) {
 //filtreleme
 const filteredWords = {};
 for (const word in wordlist) {
-    if (wordlist[word].level === 'A2') {
+    if (wordlist[word].level === 'B1') {
         filteredWords[word] = wordlist[word];
     }
 }
