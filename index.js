@@ -17,7 +17,7 @@ for (let propert in object) {
 //filtreleme
 const filteredWords = {};
 for (const word in wordlist) {
-    if (wordlist[word].level === 'A1') {
+    if (wordlist[word].level === 'A2') {
         filteredWords[word] = wordlist[word];
     }
 }
@@ -36,15 +36,6 @@ window.onload = (event) => {
 }
 buttonright.addEventListener('click', ()=> {
     queue++;
-    keysNum = keys[queue]
-    if (filteredWords[keysNum].english.length > 7 && filteredWords[keysNum].english.length < 11 && window.innerWidth < 600) {
-        englishWord.style.fontSize = '50px';
-    }
-    else if (filteredWords[keysNum].english.length > 11 && window.innerWidth < 600){
-        englishWord.style.fontSize = '40px';
-    }
-    else
-        englishWord.style.fontSize = '60px';
     englishWord.innerHTML = filteredWords[keysNum].english
     meaningWord.innerHTML = filteredWords[keysNum].turkish
 })
